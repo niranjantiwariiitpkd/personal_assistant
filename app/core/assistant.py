@@ -1,8 +1,10 @@
-# app/core/assistant.py
-from app.core.intent import detect_intent
+from app.services.llm import classify_intent
+from app.core.orchestrator import route_intent
 
-def handle_input(text: str) -> str:
-    intent = detect_intent(text)
+def handle_input(user_text: str) -> str:
+    result = classify_intent(user_text)
 
-    # For now, simple response
-    return f"I detected intent: {intent}"
+    intent = result["intent"]
+    text = result["text"]   # 👈 THIS WAS MISSING / WRONG
+
+    return route_intent(intent, text)

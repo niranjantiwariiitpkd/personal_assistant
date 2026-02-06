@@ -1,0 +1,10 @@
+from enum import Enum
+
+class Intent(str, Enum):
+    CREATE_NOTE = "CREATE_NOTE"
+    SEARCH_NOTES = "SEARCH_NOTES"
+    OPEN_WEBSITE = "OPEN_WEBSITE"
+    WEB_SEARCH = "WEB_SEARCH"
+    PLAY_MUSIC = "PLAY_MUSIC"
+    CHAT = "CHAT"
+    CAPABILITIES = "CAPABILITIES"
